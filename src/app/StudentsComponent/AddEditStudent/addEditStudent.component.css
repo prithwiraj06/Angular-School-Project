@@ -1,0 +1,27 @@
+label{
+    font-weight: 500;
+}
+.col-md-3{
+    padding-top: 6px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.card-footer-padding{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 35px;
+}
+.error{
+    color: #dc3545 !important;
+}
+.success{
+    color: #28a745 !important;
+}
+.top-padding-0{
+    padding-top: 0px;
+}
+.btn-outline-success:disabled{
+    cursor: not-allowed;
+}
+

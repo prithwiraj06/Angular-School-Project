@@ -1,0 +1,23 @@
+:host ::ng-deep .datatable-header {
+    background-color: #007bff !important;
+    font-size: 14px !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+:host ::ng-deep .ngx-datatable .datatable-header .datatable-header-cell.sortable .datatable-header-cell-wrapper{
+    color:white;
+    font-weight:bold !important;
+    font-size:16px !important
+}
+.no-padding{
+    padding: 0px;
+    vertical-align: center;
+}
+.cursor-pointer{
+    cursor: pointer;
+    color: #007bff !important;
+}
+:host ::ng-deep .datatable-footer  {
+    background-color: #007bff !important;
+    color:white !important;
+}

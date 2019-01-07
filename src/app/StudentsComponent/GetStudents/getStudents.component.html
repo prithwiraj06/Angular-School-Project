@@ -1,0 +1,57 @@
+<div>
+    <div class="row mb-2">
+        <input type="text" placeholder="search student" class="form-control" [(ngModel)]="searchTerm" (input)="searchBySearchTerm()">
+    </div>
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <mat-form-field>           
+                <mat-select placeholder="Select class" required name="ddlSelectClass" #selectedClassControl="ngModel" [(ngModel)]="selectedClass" (selectionChange)="ddlSelectedClassChanged(selectedClass)">
+                    <mat-option [value]="null">Select Class</mat-option>
+                    <mat-option value="1">Class 1</mat-option>
+                    <mat-option value="2">Class 2</mat-option>
+                    <mat-option value="3">Class 3</mat-option>
+                    <mat-option value="4">Class 4</mat-option>
+                    <mat-option value="5">Class 5</mat-option>
+                    <mat-option value="6">Class 6</mat-option>
+                    <mat-option value="7">Class 7</mat-option>
+                    <mat-option value="8">Class 8</mat-option>
+                    <mat-option value="9">Class 9</mat-option>
+                    <mat-option value="10">Class 10</mat-option>
+                    <mat-option value="11Arts">11 Arts</mat-option>
+                    <mat-option value="11Science">11 Science</mat-option>
+                    <mat-option value="11Commerce">11 Commerce</mat-option>
+                    <mat-option value="12Arts">12 Arts</mat-option>
+                    <mat-option value="12Science">12 Science</mat-option>
+                    <mat-option value="12Commerce">12 Commerce</mat-option>
+                </mat-select>
+                <mat-error *ngIf="selectedClassControl.hasError('required')">Select valid class</mat-error>            
+            </mat-form-field>              
+        </div>
+        <div class="col-md-6 no-padding mb-2">
+            <button mat-raised-button color="primary" class="float-right" (click)="openStudentModal()" ><i class="fa fa-plus-circle"></i> Add Student</button>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <ngx-datatable 
+            class="material colored-header sm table table-striped table-hover" 
+            [loadingIndicator]="loadingIndicator"
+            [rows]="studentData" 
+            [rowHeight]="35" 
+            [headerHeight]="45" 
+            [footerHeight]="35" 
+            [columns]="gridColumnName"
+            [limit]="10" 
+            [columnMode]="'force'">
+        </ngx-datatable>
+        <ng-template #studentNameTemplate let-row="row" let-value="value">
+            <a title='{{value}}' (click)='editStudent(row)' class="cursor-pointer"> {{value}}</a>
+        </ng-template>
+        <ng-template #studentStatusTemplate let-row="row" let-value="value">
+            <span>{{value ? 'Active' : 'InActive'}}</span>
+        </ng-template>
+    </div>
+</div>
+<!-- bs modal -->
+<ng-template #addEditStudentModal class="modal-lg">
+      <app-addedit-student [selectedStudentId]="selectedStudentId"  [purpose]="purpose" (closeStudentModal)="closeAddEditStudentModal($event)"></app-addedit-student>    
+</ng-template>

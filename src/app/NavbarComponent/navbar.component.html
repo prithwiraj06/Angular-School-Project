@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand"><img src="assets/Images/logo.png" class="imgClass"></a>
+    <button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    <div class="navbar-collapse" (click)="collapse=true" [hidden]="collapse">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" routerLinkActive="active-menu" routerLink="home"><b><i class="fa fa-home"></i></b></a>
+            </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLinkActive="active-menu" routerLink="students"><b>Students</b></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLinkActive="active-menu" routerLink="teachers"><b>Teachers</b></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLinkActive="active-menu" routerLink="results"><b>Results</b></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLinkActive="active-menu" routerLink="contacts"><b><i class="fa fa-phone"></i> Contacts</b></a>
+        </li>
+      </ul>
+      <b class="logoutButton"><i class="fa fa-sign-out">&nbsp;Logout</i></b>
+    </div>
+  </nav>

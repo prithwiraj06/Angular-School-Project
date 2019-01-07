@@ -1,0 +1,157 @@
+<form #AddEditStudent="ngForm" (ngSubmit)="saveStudent(student)" class="was-validated">
+<div class="card">
+    <div class="card-header bg-primary text-white"><b>{{modalHeader}}</b>
+        <span class="float-right cursor-pointer" (click)="closeAddEditStudentModal(null)">&times;</span>
+    </div>   
+    <div class="card-body">            
+        <div class="form-group">
+                
+            <div class="row">
+                <div class="col-md-3" [class.error]="studentName.invalid" [class.success]="studentName.valid">
+                    <label class="control-label">Student Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" autocomplete="off" required placeholder="Student Name" #studentName="ngModel" name="studentName" [(ngModel)]="student.Name">
+                    <span *ngIf="studentName.touched && studentName.invalid" [class.invalid-feedback]="studentName.invalid">Student name is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="fatherName.invalid" [class.success]="fatherName.valid">
+                    <label class="control-label">Father's Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" autocomplete="off" required placeholder="Father's Name" #fatherName="ngModel" name="fatherName" [(ngModel)]="student.FatherName">
+                    <span *ngIf="fatherName.touched && fatherName.invalid" [class.invalid-feedback]="fatherName.invalid">Father name is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="motherName.invalid" [class.success]="motherName.valid">
+                    <label class="control-label">Mother's Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control is-invalid" autocomplete="off" required placeholder="Mother's Name" name="motherName" #motherName="ngModel" [(ngModel)]="student.MotherName">                    
+                    <span *ngIf="motherName.touched && motherName.invalid" [class.invalid-feedback]="motherName.invalid">Mother name is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="gender.invalid" [class.success]="gender.valid">
+                    <label class="control-label">Gender</label>
+                </div>
+                <div class="col-md-9">
+                    <ng-select name="ddlGender" name="gender" required
+                        placeholder="Select Gender"
+                        #gender="ngModel"
+                        [(ngModel)]="student.Gender">                        
+                        <ng-option value="male">Male</ng-option>
+                        <ng-option value="female">Female</ng-option>
+                    </ng-select>
+                    <span *ngIf="gender.touched && gender.invalid"  [class.error]="gender.invalid">Student gender is required</span> 
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="dateOfBirth.invalid" [class.success]="dateOfBirth.valid">
+                    <label class="control-label">Date of birth</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" #dateOfBirth="ngModel" class="form-control" autocomplete="off" placeholder="Date of birth" name="dateOfBirth" [(ngModel)]="student.DateOfBirth" required>
+                    <span *ngIf="dateOfBirth.touched && dateOfBirth.invalid" [class.invalid-feedback]="dateOfBirth.invalid">Student date of birth is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="studentClass.invalid" [class.success]="studentClass.valid">
+                    <label class="control-label">Class</label>
+                </div>
+                <div class="col-md-9">
+                    <ng-select name="ddlClass" name="studentClass" required
+                        placeholder="Select Class"
+                        #studentClass="ngModel"
+                        [(ngModel)]="student.Class">                        
+                        <ng-option value="1">1</ng-option>
+                        <ng-option value="2">2</ng-option>
+                        <ng-option value="3">3</ng-option>
+                        <ng-option value="4">4</ng-option>
+                        <ng-option value="5">5</ng-option>
+                        <ng-option value="6">6</ng-option>
+                        <ng-option value="7">7</ng-option>
+                        <ng-option value="8">8</ng-option>
+                        <ng-option value="9">9</ng-option>
+                        <ng-option value="10">10</ng-option>
+                        <ng-option value="11Arts">11 Arts</ng-option>
+                        <ng-option value="11Science">11 Science</ng-option>
+                        <ng-option value="11Commerce">11 Commerce</ng-option>
+                        <ng-option value="12Arts">12 Arts</ng-option>
+                        <ng-option value="12Science">12 Science</ng-option>
+                        <ng-option value="12Commerce">12 Commerce</ng-option>
+                    </ng-select>
+                    <span *ngIf="studentClass.touched && studentClass.invalid"  [class.error]="studentClass.invalid">Class is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="address.invalid" [class.success]="address.valid">
+                    <label class="control-label">Address</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" #address="ngModel" class="form-control" autocomplete="off" placeholder="Address" name="address" [(ngModel)]="student.Address" required>
+                    <span *ngIf="address.touched && address.invalid" [class.invalid-feedback]="address.invalid">Address class is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="contactNumber.invalid" [class.success]="contactNumber.valid">
+                    <label class="control-label">Contact Number</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" #contactNumber="ngModel" class="form-control" autocomplete="off" placeholder="Contact Number" name="contactNumber" [(ngModel)]="student.ContactNumber" required>
+                    <span *ngIf="contactNumber.touched && contactNumber.invalid" [class.invalid-feedback]="contactNumber.invalid">Contact number is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3" [class.error]="addmissionDate.invalid" [class.success]="addmissionDate.valid">
+                    <label class="control-label">Addmission Date</label>
+                </div>
+                <div class="col-md-9">
+                    <input #addmissionDate="ngModel" type="text" class="form-control" autocomplete="off" placeholder="Addmission Date" name="addmissionDate" [(ngModel)]="student.AddmissionDate" required>
+                    <span *ngIf="addmissionDate.touched && addmissionDate.invalid" [class.invalid-feedback]="addmissionDate.invalid">Addmission date is required</span>
+                </div>           
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3 top-padding-0" [class.error]="status.invalid" [class.success]="status.valid">
+                    <label class="control-label top-padding-0">Status</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="checkbox" name="status" #status="ngModel"   [(ngModel)]="student.Status" [required]="purpose===add">                   
+                </div>           
+            </div> 
+        </div>
+    </div>
+    <div class="card-footer card-footer-padding">
+        <div class="row float-right">
+            <button class="btn btn-outline-success float-right"  [disabled]="!AddEditStudent.valid || disableSaveButton">
+                <i class="fa fa-save" *ngIf="saveClicked ===false"></i>
+                <i class="fa fa-circle-o-notch fa-spin" *ngIf="saveClicked===true"></i>&nbsp;
+                Save
+            </button>&nbsp;
+            <button type="button" class="btn btn-outline-danger float-right" (click)="closeAddEditStudentModal(null)">
+                <i class="fa fa-times-circle"></i>&nbsp;Cancel
+            </button>
+        </div>        
+    </div>
+</div>
+</form>
